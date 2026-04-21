@@ -1,14 +1,32 @@
-document.getElementById("form").addEventListener("submit", function(e) {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", function() {
 
-  let name = document.getElementById("name").value;
-  let email = document.getElementById("email").value;
-  let error = document.getElementById("error");
+  document.getElementById("form").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-  if (name === "" || email === "") {
-    error.textContent = "Please fill out all fields";
-    return;
-  }
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let error = document.getElementById("error");
 
-  error.textContent = "Form submitted!";
+    // Simple email pattern
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
+
+    if (name === "" || email === "") {
+      error.textContent = "Please fill out all fields";
+      error.style.color = "red";
+      return;
+    }
+
+    if (!emailPattern.test(email)) {
+      error.textContent = "Please enter a valid email";
+      error.style.color = "red";
+      return;
+    }
+
+    error.textContent = "Form submitted!";
+    error.style.color = "lightgreen";
+
+    // Optional: clear form
+    document.getElementById("form").reset();
+  });
+
 });
