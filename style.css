@@ -1,18 +1,16 @@
-/* BASE */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   background: linear-gradient(to bottom, #0b0f2f, #1c2541);
   color: #e0e6ff;
-  position: relative;
 }
 
-/* SMOOTH SCROLL */
+/* Smooth scroll */
 html {
   scroll-behavior: smooth;
 }
 
-/* HEADER */
+/* Header */
 header {
   background: rgba(10, 15, 40, 0.9);
   color: white;
@@ -20,12 +18,11 @@ header {
   text-align: center;
 }
 
-/* NAV */
+/* Nav */
 nav a {
   color: #cdd9ff;
   margin: 10px;
   text-decoration: none;
-  transition: 0.3s;
 }
 
 nav a:hover {
@@ -33,7 +30,7 @@ nav a:hover {
   text-shadow: 0 0 8px #9bbcff;
 }
 
-/* TITLE ANIMATION */
+/* Title glow */
 h1 {
   animation: glow 3s infinite alternate;
 }
@@ -43,21 +40,15 @@ h1 {
   to { text-shadow: 0 0 20px #cfd8ff; }
 }
 
-/* SECTIONS */
+/* Sections */
 section {
   padding: 40px;
   margin: 20px;
   background: rgba(255,255,255,0.03);
   border-radius: 10px;
-  backdrop-filter: blur(5px);
 }
 
-/* HEADINGS */
-h2 {
-  text-shadow: 0 0 8px #9bbcff;
-}
-
-/* IMAGES */
+/* Images */
 img {
   width: 200px;
   border-radius: 10px;
@@ -68,7 +59,7 @@ img:hover {
   transform: scale(1.1);
 }
 
-/* FORM */
+/* Form */
 form input, form button {
   display: block;
   margin: 10px auto;
@@ -81,20 +72,19 @@ form button {
   background: #3a4f9f;
   color: white;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 form button:hover {
   background: #5a6fd8;
 }
 
-/* FOOTER */
+/* Footer */
 footer {
   text-align: center;
   padding: 10px;
 }
 
-/* 🌟 STARS */
+/* Stars */
 .stars, .stars2, .stars3 {
   position: fixed;
   top: 0;
@@ -104,27 +94,23 @@ footer {
   z-index: -1;
 }
 
-/* LAYER 1 */
 .stars {
   background: url("https://www.transparenttextures.com/patterns/stardust.png");
   animation: move1 100s linear infinite;
 }
 
-/* LAYER 2 */
 .stars2 {
   background: url("https://www.transparenttextures.com/patterns/stardust.png");
   animation: move2 160s linear infinite;
   opacity: 0.5;
 }
 
-/* LAYER 3 */
 .stars3 {
   background: url("https://www.transparenttextures.com/patterns/stardust.png");
   animation: move3 220s linear infinite;
   opacity: 0.3;
 }
 
-/* FIXED TRANSFORMS */
 @keyframes move1 {
   from { transform: translateY(0); }
   to { transform: translateY(-2000px); }
@@ -140,7 +126,7 @@ footer {
   to { transform: translateY(-2000px) scale(2); }
 }
 
-/* RESPONSIVE */
+/* Responsive */
 @media (max-width: 600px) {
   img {
     width: 100%;
