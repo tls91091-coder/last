@@ -1,8 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Moonlight Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
 <section id="home">
   <h2>Home</h2>
   <p>Welcome to my moon-themed website project.</p>
 </section>
-<link rel="stylesheet" href="style.css">
+
 <section id="about">
   <h2>About</h2>
   <p>This website showcases a night sky theme with animations and interactivity.</p>
@@ -10,8 +20,8 @@
 
 <section id="gallery">
   <h2>Gallery</h2>
-  <img src="https://via.placeholder.com/300">
-  <img src="https://via.placeholder.com/300">
+  <img src="https://via.placeholder.com/300" alt="Moon image 1">
+  <img src="https://via.placeholder.com/300" alt="Moon image 2">
 </section>
 
 <section id="video">
@@ -25,8 +35,12 @@
 <section id="contact">
   <h2>Contact</h2>
   <form id="form">
-    <input type="text" id="name" placeholder="Name">
-    <input type="email" id="email" placeholder="Email">
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Email" required>
+
     <button type="submit">Submit</button>
     <p id="error"></p>
   </form>
