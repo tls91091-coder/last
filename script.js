@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let email = document.getElementById("email").value.trim();
     let error = document.getElementById("error");
 
-    // Simple email pattern
     let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
 
     if (name === "" || email === "") {
@@ -25,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
     error.textContent = "Form submitted!";
     error.style.color = "lightgreen";
 
-    // Optional: clear form
     document.getElementById("form").reset();
   });
 
