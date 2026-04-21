@@ -1,11 +1,15 @@
-@@ -1 +1,126 @@
+/* BASE */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   background: linear-gradient(to bottom, #0b0f2f, #1c2541);
   color: #e0e6ff;
   position: relative;
-  z-index: 1;
+}
+
+/* SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
 }
 
 /* HEADER */
@@ -42,6 +46,15 @@ h1 {
 /* SECTIONS */
 section {
   padding: 40px;
+  margin: 20px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+/* HEADINGS */
+h2 {
+  text-shadow: 0 0 8px #9bbcff;
 }
 
 /* IMAGES */
@@ -91,28 +104,40 @@ footer {
   z-index: -1;
 }
 
+/* LAYER 1 */
 .stars {
   background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: move 100s linear infinite;
+  animation: move1 100s linear infinite;
 }
 
+/* LAYER 2 */
 .stars2 {
   background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: move 160s linear infinite;
+  animation: move2 160s linear infinite;
   opacity: 0.5;
-  transform: scale(1.5);
 }
 
+/* LAYER 3 */
 .stars3 {
   background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: move 220s linear infinite;
+  animation: move3 220s linear infinite;
   opacity: 0.3;
-  transform: scale(2);
 }
 
-@keyframes move {
+/* FIXED TRANSFORMS */
+@keyframes move1 {
   from { transform: translateY(0); }
   to { transform: translateY(-2000px); }
+}
+
+@keyframes move2 {
+  from { transform: translateY(0) scale(1.5); }
+  to { transform: translateY(-2000px) scale(1.5); }
+}
+
+@keyframes move3 {
+  from { transform: translateY(0) scale(2); }
+  to { transform: translateY(-2000px) scale(2); }
 }
 
 /* RESPONSIVE */
@@ -121,7 +146,8 @@ footer {
     width: 100%;
   }
 
-  nav {
+  nav a {
     display: block;
+    margin: 5px 0;
   }
 }
