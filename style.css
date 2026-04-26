@@ -1,69 +1,53 @@
 body {
-  @media (max-width: 768px) {
-  /* tablet styles */
-}
-
-@media (max-width: 576px) {
-  /* phone styles */
-}
-  font-family: 'Segoe UI', sans-serif;
   margin: 0;
+  font-family: Arial, sans-serif;
   background: linear-gradient(to bottom, #0b0f2f, #1c2541);
   color: #e0e6ff;
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Header */
 header {
-  background: rgba(10, 15, 40, 0.9);
-  color: white;
-  padding: 15px;
   text-align: center;
+  padding: 20px;
+  background: rgba(10, 15, 40, 0.9);
 }
 
 /* Nav */
 nav a {
-  color: #cdd9ff;
   margin: 10px;
+  color: #cdd9ff;
   text-decoration: none;
 }
 
 nav a:hover {
   color: white;
-  text-shadow: 0 0 8px #9bbcff;
-}
-
-/* Title glow */
-h1 {
-  animation: glow 3s infinite alternate;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 5px #aaa; }
-  to { text-shadow: 0 0 20px #cfd8ff; }
 }
 
 /* Sections */
 section {
+  max-width: 900px;
+  margin: 20px auto;
   padding: 40px;
-  margin: 20px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.05);
   border-radius: 10px;
 }
 
-/* Images */
-img {
-  width: 200px;
-  border-radius: 10px;
-  transition: transform 0.3s;
+/* Hero */
+.hero {
+  text-align: center;
 }
 
-img:hover {
-  transform: scale(1.1);
+/* Gallery */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.gallery img {
+  width: 250px;
+  border-radius: 10px;
 }
 
 /* Form */
@@ -71,76 +55,43 @@ form input, form button {
   display: block;
   margin: 10px auto;
   padding: 10px;
-  border-radius: 5px;
   border: none;
-}
-
-form button {
-  background: #3a4f9f;
-  color: white;
-  cursor: pointer;
-}
-
-form button:hover {
-  background: #5a6fd8;
+  border-radius: 5px;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 10px;
+  padding: 15px;
 }
 
 /* Stars */
-.stars, .stars2, .stars3 {
+.stars {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
+  background: url("../images/stars.png");
+  opacity: 0.3;
   z-index: -1;
 }
 
-.stars {
-  background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: move1 100s linear infinite;
-}
+/* RESPONSIVE */
 
-.stars2 {
-  background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: move2 160s linear infinite;
-  opacity: 0.5;
-}
-
-.stars3 {
-  background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: move3 220s linear infinite;
-  opacity: 0.3;
-}
-
-@keyframes move1 {
-  from { transform: translateY(0); }
-  to { transform: translateY(-2000px); }
-}
-
-@keyframes move2 {
-  from { transform: translateY(0) scale(1.5); }
-  to { transform: translateY(-2000px) scale(1.5); }
-}
-
-@keyframes move3 {
-  from { transform: translateY(0) scale(2); }
-  to { transform: translateY(-2000px) scale(2); }
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  img {
-    width: 100%;
+/* Tablet */
+@media (max-width: 768px) {
+  section {
+    padding: 20px;
   }
+}
 
+/* Phone */
+@media (max-width: 576px) {
   nav a {
     display: block;
     margin: 5px 0;
+  }
+
+  .gallery img {
+    width: 100%;
   }
 }
