@@ -1,97 +1,89 @@
 body {
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  font-family: Arial, sans-serif;
   background: linear-gradient(to bottom, #0b0f2f, #1c2541);
   color: #e0e6ff;
+  position: relative;
+  z-index: 1;
 }
 
-/* Header */
-header {
-  text-align: center;
-  padding: 20px;
-  background: rgba(10, 15, 40, 0.9);
+/* SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
 }
 
-/* Nav */
-nav a {
-  margin: 10px;
-  color: #cdd9ff;
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: white;
-}
-
-/* Sections */
+/* HEADER */
+@@ -42,6 +46,15 @@ h1 {
+/* SECTIONS */
 section {
-  max-width: 900px;
-  margin: 20px auto;
   padding: 40px;
-  background: rgba(255,255,255,0.05);
+  margin: 20px;
+  background: rgba(255,255,255,0.03);
   border-radius: 10px;
+  backdrop-filter: blur(5px);
 }
 
-/* Hero */
-.hero {
-  text-align: center;
+/* HEADINGS */
+h2 {
+  text-shadow: 0 0 8px #9bbcff;
 }
 
-/* Gallery */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
-.gallery img {
-  width: 250px;
-  border-radius: 10px;
-}
-
-/* Form */
-form input, form button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 15px;
-}
-
-/* Stars */
-.stars {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: url("../images/stars.png");
-  opacity: 0.3;
+/* IMAGES */
+@@ -91,37 +104,50 @@ footer {
   z-index: -1;
 }
 
-/* RESPONSIVE */
-
-/* Tablet */
-@media (max-width: 768px) {
-  section {
-    padding: 20px;
-  }
+/* LAYER 1 */
+.stars {
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  animation: move 100s linear infinite;
+  animation: move1 100s linear infinite;
 }
 
-/* Phone */
-@media (max-width: 576px) {
+/* LAYER 2 */
+.stars2 {
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  animation: move 160s linear infinite;
+  animation: move2 160s linear infinite;
+  opacity: 0.5;
+  transform: scale(1.5);
+}
+
+/* LAYER 3 */
+.stars3 {
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  animation: move 220s linear infinite;
+  animation: move3 220s linear infinite;
+  opacity: 0.3;
+  transform: scale(2);
+}
+
+@keyframes move {
+/* FIXED TRANSFORMS */
+@keyframes move1 {
+  from { transform: translateY(0); }
+  to { transform: translateY(-2000px); }
+}
+
+@keyframes move2 {
+  from { transform: translateY(0) scale(1.5); }
+  to { transform: translateY(-2000px) scale(1.5); }
+}
+
+@keyframes move3 {
+  from { transform: translateY(0) scale(2); }
+  to { transform: translateY(-2000px) scale(2); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  img {
+    width: 100%;
+  }
+
+  nav {
   nav a {
     display: block;
     margin: 5px 0;
-  }
-
-  .gallery img {
-    width: 100%;
   }
 }
