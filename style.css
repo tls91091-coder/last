@@ -1,47 +1,141 @@
 /* CSS Styling for Navigation, Hero Section, Cards, Footer, and Form */
 
+/* Animated Starfield Background */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+@keyframes moveStars {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(-100px) translateY(-50px); }
+}
+
+@keyframes moonGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 250, 205, 0.8), 0 0 40px rgba(255, 250, 205, 0.4); }
+    50% { box-shadow: 0 0 30px rgba(255, 250, 205, 1), 0 0 60px rgba(255, 250, 205, 0.6); }
+}
+
+/* Body with starfield background */
+body {
+    background: linear-gradient(135deg, #0a1558 0%, #1a2b7f 25%, #0f1e5c 50%, #1a2b7f 75%, #0a1558 100%);
+    position: relative;
+    overflow-x: hidden;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* Star field container */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, rgba(255, 255, 255, 0)),
+        radial-gradient(2px 2px at 60px 70px, #fff, rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 50px 50px, #fff, rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 130px 80px, #fff, rgba(255, 255, 255, 0)),
+        radial-gradient(2px 2px at 90px 10px, #fff, rgba(255, 255, 255, 0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: moveStars 20s linear infinite;
+    z-index: -2;
+}
+
+/* Moon */
+body::after {
+    content: '';
+    position: fixed;
+    top: 50px;
+    right: 80px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 35% 35%, #fffacd 0%, #f0e68c 50%, #daa520 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 250, 205, 0.8), 0 0 40px rgba(255, 250, 205, 0.4);
+    animation: moonGlow 4s ease-in-out infinite;
+    z-index: -1;
+}
+
 /* Navigation Styles */
 nav {
-    background-color: #333;
+    background: linear-gradient(135deg, #0d2a5a 0%, #1a4d8f 100%);
     color: #fff;
     padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 100;
 }
 
 nav a {
-    color: #fff;
+    color: #e0f4ff;
     text-decoration: none;
     padding: 10px 15px;
+    transition: all 0.3s ease;
 }
 
 nav a:hover {
-    background-color: #575757;
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }
 
 /* Hero Section Styles */
 .hero {
-    background: url('hero-image.jpg') no-repeat center center;
+    background: linear-gradient(135deg, rgba(10, 21, 88, 0.9) 0%, rgba(26, 43, 127, 0.9) 50%, rgba(15, 30, 92, 0.9) 100%);
     height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: #e0f4ff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, #fff, rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 60px 70px, #fff, rgba(255, 255, 255, 0)),
+        radial-gradient(1px 1px at 50px 50px, #fff, rgba(255, 255, 255, 0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: moveStars 30s linear infinite;
+    opacity: 0.6;
+    z-index: 0;
 }
 
 .hero h1 {
     font-size: 3em;
+    position: relative;
+    z-index: 10;
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
 }
 
 /* Cards Styles */
 .card {
-    border: 1px solid #ccc;
+    border: 1px solid #3b82f6;
     border-radius: 8px;
     padding: 20px;
     margin: 15px;
-    transition: transform 0.2s;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(13, 42, 90, 0.8) 0%, rgba(26, 77, 143, 0.8) 100%);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) translateY(-5px);
+    border-color: #60a5fa;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+    background: linear-gradient(135deg, rgba(21, 56, 120, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
 }
 
 .card img {
@@ -51,10 +145,13 @@ nav a:hover {
 
 /* Footer Styles */
 footer {
-    background-color: #333;
-    color: #fff;
+    background: linear-gradient(135deg, #0a1558 0%, #1a2b7f 100%);
+    color: #e0f4ff;
     text-align: center;
     padding: 20px;
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* Form Styles */
@@ -62,23 +159,43 @@ form {
     display: flex;
     flex-direction: column;
     width: 300px;
+    background: linear-gradient(135deg, rgba(13, 42, 90, 0.9) 0%, rgba(26, 77, 143, 0.9) 100%);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #3b82f6;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 form input, form textarea {
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #3b82f6;
     border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0f4ff;
+    transition: all 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 form button {
-    background-color: #28a745;
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
     color: #fff;
     border: none;
     padding: 10px;
     cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
 }
 
 form button:hover {
-    background-color: #218838;
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+    transform: translateY(-2px);
 }
