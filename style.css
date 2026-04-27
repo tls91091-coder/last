@@ -1,215 +1,153 @@
-/* BASE */
-body {
-  font-family: 'Segoe UI', sans-serif;
+/* RESET */
+* {
   margin: 0;
-  background: linear-gradient(to bottom, #0b0f2f, #1c2541);
-  color: #e0e6ff;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* HEADER */
-header {
-  background: rgba(10, 15, 40, 0.9);
+/* BODY */
+body {
+  font-family: Arial, sans-serif;
   color: white;
-  padding: 15px;
-  text-align: center;
+  background: linear-gradient(#050510, #0b0b1e, #0a0a2a);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* STARS */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  box-shadow:
+    20px 30px white,
+    100px 200px white,
+    200px 150px white,
+    300px 400px white,
+    500px 100px white,
+    700px 250px white,
+    900px 300px white;
+  animation: moveStars 60s linear infinite;
+}
+
+@keyframes moveStars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1000px); }
 }
 
 /* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+}
+
+nav h2 {
+  font-size: 1.5rem;
+}
+
 nav a {
-  color: #cdd9ff;
-  margin: 10px;
+  color: white;
   text-decoration: none;
+  margin-left: 15px;
 }
 
 nav a:hover {
-  color: white;
-  text-shadow: 0 0 8px #9bbcff;
+  color: #9aaaff;
 }
 
-/* TITLE ANIMATION */
-h1 {
-  animation: glow 3s infinite alternate;
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
 }
 
-@keyframes glow {
-  from { text-shadow: 0 0 5px #aaa; }
-  to { text-shadow: 0 0 20px #cfd8ff; }
+.hero h1 {
+  font-size: 2.5rem;
 }
 
-/* SECTIONS */
-section {
-  padding: 40px;
-  margin: 20px;
-  background: rgba(255,255,255,0.03);
-  border-radius: 10px;
+.hero p {
+  margin-top: 10px;
+  opacity: 0.8;
 }
 
-/* GENERAL IMAGES */
-img {
-  max-width: 100%;
-  border-radius: 10px;
+/* MOON */
+.moon {
+  width: 120px;
+  height: 120px;
+  margin: 30px auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff, #ccc);
+  box-shadow: 0 0 40px #b3b3ff;
 }
 
-/* 🌌 GALLERY */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+/* CARDS */
+.card-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 30px;
   gap: 20px;
 }
 
-.gallery img {
-  width: 250px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 0 15px rgba(155, 188, 255, 0.3);
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
 }
 
-.gallery img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px rgba(155, 188, 255, 0.6);
+.card:hover {
+  transform: translateY(-8px);
 }
 
 /* FORM */
-form input, form button {
-  display: block;
-  margin: 10px auto;
+form input, form textarea {
+  width: 100%;
   padding: 10px;
-  border-radius: 5px;
+  margin-top: 10px;
   border: none;
+  border-radius: 5px;
 }
 
 form button {
-  background: #3a4f9f;
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background: #6c6cff;
   color: white;
+  border-radius: 5px;
   cursor: pointer;
 }
 
 form button:hover {
-  background: #5a6fd8;
+  background: #4a4aff;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 10px;
-}
-
-/* 🌟 STARS BACKGROUND */
-.stars, .stars2, .stars3 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-.stars {
-  background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: move1 100s linear infinite;
-}
-
-.stars2 {
-  background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: move2 160s linear infinite;
-  opacity: 0.5;
-}
-
-.stars3 {
-  background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: move3 220s linear infinite;
-  opacity: 0.3;
-}
-
-@keyframes move1 {
-  from { transform: translateY(0); }
-  to { transform: translateY(-2000px); }
-}
-
-@keyframes move2 {
-  from { transform: translateY(0) scale(1.5); }
-  to { transform: translateY(-2000px) scale(1.5); }
-}
-
-@keyframes move3 {
-  from { transform: translateY(0) scale(2); }
-  to { transform: translateY(-2000px) scale(2); }
-}
-
-/* ⭐ GLOWING STAR (UPDATED SHAPE + SOFT COLOR) */
-.glow-star {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 20px;
-  height: 20px;
-  z-index: 10;
-
-  background: #ffeaa7;
-
-  /* Star shape */
-  clip-path: polygon(
-    50% 0%, 
-    61% 35%, 
-    98% 35%, 
-    68% 57%, 
-    79% 91%, 
-    50% 70%, 
-    21% 91%, 
-    32% 57%, 
-    2% 35%, 
-    39% 35%
-  );
-
-  /* Soft glow */
-  box-shadow:
-    0 0 8px rgba(255, 234, 167, 0.8),
-    0 0 16px rgba(255, 223, 120, 0.6),
-    0 0 30px rgba(255, 215, 100, 0.4);
-
-  animation: pulseStar 2.5s infinite ease-in-out, flicker 4s infinite;
-}
-
-/* ✨ PULSE */
-@keyframes pulseStar {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1.3);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-}
-
-/* ✨ FLICKER */
-@keyframes flicker {
-  0%, 100% { opacity: 0.9; }
-  50% { opacity: 0.6; }
-}
-
-/* 🖱️ HOVER */
-.glow-star:hover {
-  transform: scale(1.5);
+  padding: 20px;
+  opacity: 0.7;
 }
 
 /* RESPONSIVE */
-@media (max-width: 600px) {
-  nav a {
-    display: block;
-    margin: 5px 0;
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
   }
 
-  .gallery img {
-    width: 100%;
+  .hero h1 {
+    font-size: 2rem;
   }
 }
